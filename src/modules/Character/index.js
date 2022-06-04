@@ -33,7 +33,7 @@ export default function CharacterScreen({navigation}) {
   });
 
   const handleLoadMore = () => {
-    if (dataCharacter.info.count >= dataCharacter.data.length) {
+    if (dataCharacter.info.pages >= page.current) {
       dispatch(getData(page.current + 1));
       page.current = page.current + 1;
     } else {

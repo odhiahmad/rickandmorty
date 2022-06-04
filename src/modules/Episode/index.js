@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getData} from './rx/action';
 import ListEpisode from './com/ListEpisode';
@@ -19,7 +19,7 @@ export default function EpisodeScreen({navigation}) {
   const dispatch = useDispatch();
   const dataEpisode = useSelector(state => state.episode);
   const page = useRef(1);
-  const endPage = useRef(false);
+  const [endPage, setEndPage] = useState(false);
   const connect = useRef(false);
 
   useEffect(() => {
@@ -34,18 +34,18 @@ export default function EpisodeScreen({navigation}) {
   });
 
   const handleLoadMore = () => {
-    if (dataEpisode.info.count >= dataEpisode.data.length) {
+    if (dataEpisode.info.pages >= page.current) {
       dispatch(getData(page.current + 1));
       page.current = page.current + 1;
     } else {
-      endPage.current = true;
+      setEndPage(true);
     }
   };
 
   const renderFooter = () => {
-    return dataEpisode.loading && endPage.current === false ? (
+    return dataEpisode.loading && endPage === false ? (
       <ActivityIndicator size="small" color="#0000ff" />
-    ) : endPage.current === true ? (
+    ) : endPage === true ? (
       <View style={styles.endOfPage}>
         <Text>End of Page</Text>
       </View>
