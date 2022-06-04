@@ -1,11 +1,4 @@
-import {
-  SafeAreaView,
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  FlatList,
-} from 'react-native';
+import {SafeAreaView, View, Text, StyleSheet, FlatList} from 'react-native';
 import React, {useEffect} from 'react';
 import Header from '../../components/Header';
 import {useSelector, useDispatch} from 'react-redux';
@@ -26,11 +19,11 @@ export default function DetailEpisode({route, navigation}) {
 
   useEffect(() => {
     dispatch(getDetail(itemEpisode.characters, 'all'));
-  });
+  }, [dispatch, itemEpisode.characters]);
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Detail Character" navigation={navigation} />
-      <ScrollView style={styles.containerScrollView}>
+      <Header title="" navigation={navigation} />
+      <View style={styles.containerScrollView}>
         <Text style={styles.txtEpisode}>{itemEpisode.episode}</Text>
         <Text numberOfLines={2} style={styles.txtName}>
           {itemEpisode.name}
@@ -45,7 +38,7 @@ export default function DetailEpisode({route, navigation}) {
           )}
           keyExtractor={(item, index) => index.toString()}
         />
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

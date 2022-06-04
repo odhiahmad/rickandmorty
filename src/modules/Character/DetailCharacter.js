@@ -17,7 +17,7 @@ export default function DetailCharacter({route, navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Detail Character" navigation={navigation} />
+      <Header title="" navigation={navigation} />
       <ScrollView>
         <View style={styles.containerView}>
           <View
