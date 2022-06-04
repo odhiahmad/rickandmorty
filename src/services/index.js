@@ -12,8 +12,6 @@ export function setUpAxios() {
     return req;
   });
   instance.interceptors.response.use((res: AxiosResponse) => {
-    console.log(res);
-
     return res;
   });
 }
