@@ -1,0 +1,14 @@
+## Rick & Morty Test
+# Step to running app
+# 1. Yarn Install
+# 2. Yarn start
+
+
+#Android
+# 1. Create local.properties at this line 'sdk.dir = /Users/{username}/Library/Android/sdk'
+# 2. Put in root/android/
+# 3. Yarn run android after yarn start
+
+#Ios
+# 1. Pod install in folder Ios
+# 2. Yarn run ios after yarn start

@@ -7,6 +7,7 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
+  Platform,
 } from 'react-native';
 import ListCharacterAppear from './ListCharacterAppear';
 const height = Dimensions.get('window').height;
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   modalView: {
-    height: height / 3,
+    height: Platform.OS === 'ios' ? height / 3 : height / 2.5,
     width: '100%',
     backgroundColor: '#fff',
     borderTopLeftRadius: 15,

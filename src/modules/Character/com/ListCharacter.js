@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet,
   Dimensions,
+  Platform,
 } from 'react-native';
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -57,18 +58,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginVertical: 5,
     borderRadius: 5,
-    height: windowHeight / 7,
+    height: Platform.OS === 'ios' ? windowHeight / 7 : windowHeight / 6,
     alignItems: 'center',
   },
   imgCover: {
     width: 100,
-    height: windowHeight / 7,
+    height: Platform.OS === 'ios' ? windowHeight / 7 : windowHeight / 6,
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
   },
   containerContent: {
     justifyContent: 'space-between',
-    height: windowHeight / 13,
+    height: Platform.OS === 'ios' ? windowHeight / 12 : windowHeight / 10,
   },
   containerTxt: {flexDirection: 'column', marginLeft: 10},
   contentInfo: {flexDirection: 'row'},
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: 'black',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   txtSpecies: {color: 'gray'},
   txtStatus: {color: '#fff'},

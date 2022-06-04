@@ -6,6 +6,7 @@ import {
   Image,
   StyleSheet,
   Dimensions,
+  Platform,
 } from 'react-native';
 import React from 'react';
 import Header from '../../components/Header';
@@ -60,12 +61,12 @@ const styles = StyleSheet.create({
   containerView: {
     padding: 15,
     flex: 1,
-    marginTop: windowHeight / 3,
+    marginTop: Platform.OS === 'ios' ? windowHeight / 3 : windowHeight / 2.7,
   },
   containerContent: {
     padding: 10,
     flex: 1,
-    height: windowHeight / 3,
+    height: Platform.OS === 'ios' ? windowHeight / 3 : windowHeight / 2.5,
     borderRadius: 10,
   },
   containerContentTxt: {flex: 1, alignItems: 'center'},
@@ -87,9 +88,9 @@ const styles = StyleSheet.create({
   },
   imgCover: {
     width: '100%',
-    height: windowHeight / 2.5,
+    height: Platform.OS === 'ios' ? windowHeight / 2.5 : windowHeight / 2,
     borderRadius: 5,
-    marginTop: -windowHeight / 3,
+    marginTop: Platform.OS === 'ios' ? windowHeight / -3 : windowHeight / -2.5,
   },
   line: {
     borderBottomWidth: 0.5,
